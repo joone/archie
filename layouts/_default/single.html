@@ -28,15 +28,18 @@
 			{{ end }}
 			{{ end }}
 		</div>
-		{{- $.Scratch.Set "isDisqus" true -}}
-		<!-- Check if disqus short name is given -->
-		{{ if not .Site.DisqusShortname }}
-		{{- $.Scratch.Set "isDisqus" false -}}
-		{{ end }}
+    <!-- comments -->
+    <div class="pt-4"></div>
+    <div class="mt-5 border-default border p-4 bg-white rounded">
+      <script src="https://utteranc.es/client.js"
+      repo="joone/joone.github.io"
+      issue-term="pathname"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+      </script>
+    </div>
 
-		{{- if eq ($.Scratch.Get "isDisqus") true -}}
-		{{- partial "disqus.html" . -}}
-		{{- end -}}
 	</article>
 </main>
 {{ end }}
